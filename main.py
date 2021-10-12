@@ -15,10 +15,10 @@ def getPoints():
 
 
 # given 2 points calculate the distance
-def calculate_distance(x, y):
+def calculate_distance(p_1, p_2):
     # distance = sqrt((x2 - x1)^2 + (y2 -y1)^2)
-    d = math.sqrt(math.pow(float(x[1]) - float(x[0]), 2) +
-                  math.pow(float(y[1]) - float(y[0]), 2))
+    d = math.sqrt(math.pow(float(p_2[0]) - float(p_1[0]), 2) +
+                  math.pow(float(p_2[1]) - float(p_1[1]), 2))
     return d
 
 
@@ -78,6 +78,7 @@ def merge(left, right):
 if __name__ == '__main__':
     count = 0
     all_points = getPoints()
+    print(all_points)
     points_info = create_list_of_distances(all_points)
     m = input('How many closest pairs?: ')
     sorted_points_info = merge_sort(points_info)
