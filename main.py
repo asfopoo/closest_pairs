@@ -5,7 +5,9 @@ from random import randint
 def getPoints():
     points = []
     # get input
-    num_points = input('Choose how many points you would like to use: ')
+    num_points = input('Choose how many points you would like to use: (2 or more) ')
+    while int(num_points) < 2:
+        num_points = input('Invalid input, choose how many points you would like to use: (2 or more) ')
     # create random points based on the user input from 1 to 10,000
     for i in range(int(num_points)):
         x = randint(1, 10000)
@@ -78,9 +80,10 @@ def merge(left, right):
 if __name__ == '__main__':
     count = 0
     all_points = getPoints()
-    print(all_points)
     points_info = create_list_of_distances(all_points)
     m = input('How many closest pairs?: ')
+    while int(m) >= len(all_points):
+        m = input('Not enough points to calculate that many closest pairs, choose less closest pairs?: ')
     sorted_points_info = merge_sort(points_info)
     for i in range(int(m)):
         print(sorted_points_info[i])

@@ -1,4 +1,4 @@
-# closest pairs
+# Closest pairs
 
 ----
 
