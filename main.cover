@@ -1,0 +1,86 @@
+    1: import math
+    1: from random import randint
+       
+       
+    1: def getPoints():
+    1:     points = []
+           # get input
+    1:     num_points = input('Choose how many points you would like to use: ')
+           # create random points based on the user input from 1 to 10,000
+   56:     for i in range(int(num_points)):
+   55:         x = randint(1, 10000)
+   55:         y = randint(1, 10000)
+   55:         points.append([x, y])
+    1:     return points
+       
+       
+       # given 2 points calculate the distance
+    1: def calculate_distance(x, y):
+           # distance = sqrt((x2 - x1)^2 + (y2 -y1)^2)
+ 1485:     d = math.sqrt(math.pow(float(x[1]) - float(x[0]), 2) +
+ 1485:                   math.pow(float(y[1]) - float(y[0]), 2))
+ 1485:     return d
+       
+       
+    1: def create_list_of_distances(points):
+    1:     p_info = []
+           # iterate all points and calculate the distance bw all other points
+   56:     for i in range(len(points)):
+ 1540:         for j in range(i + 1, len(points)):
+ 1485:             distance = calculate_distance(points[i], points[j])
+ 1485:             p_info.append({'x1': points[i][0], 'y1': points[i][1], 'x2': points[j][0], 'y2': points[j][1], 'distance': distance})
+    1:     return p_info
+       
+       
+    1: def merge_sort(p):
+       
+ 2969:     list_length = len(p)
+       
+           # base case
+ 2969:     if list_length == 1:
+ 1485:         return p
+       
+           # Get the middle of the list
+           # // = integer division
+ 1484:     mid_point = list_length // 2
+       
+           # recursively merge everythin in the left and everything in the right
+ 1484:     left_partition = merge_sort(p[:mid_point])
+ 1484:     right_partition = merge_sort(p[mid_point:])
+       
+           # merge everything back into one
+ 1484:     return merge(left_partition, right_partition)
+       
+       
+       # takes in two lists and returns a sorted list made up of the content within the two lists
+    1: def merge(left, right):
+ 1484:     output = []
+ 1484:     i = j = 0
+       
+           # Executes the while loop if both pointers i and j are less than the length of the left and right lists
+15278:     while i < len(left) and j < len(right):
+               # Compare the elements at every position of both lists during each iteration
+       
+13794:         if left[int(i)]['distance'] < right[int(j)]['distance']:
+                   # output is populated with the lesser value
+ 6715:             output.append(left[i])
+ 6715:             i += 1
+               else:
+ 7079:             output.append(right[j])
+ 7079:             j += 1
+           # The remnant elements are picked from the current pointer value to the end of the respective list
+ 1484:     output.extend(left[i:])
+ 1484:     output.extend(right[j:])
+       
+ 1484:     return output
+       
+       
+    1: if __name__ == '__main__':
+    1:     count = 0
+    1:     all_points = getPoints()
+    1:     points_info = create_list_of_distances(all_points)
+    1:     m = input('How many closest pairs?: ')
+    1:     sorted_points_info = merge_sort(points_info)
+    8:     for i in range(int(m)):
+    7:         print(sorted_points_info[i])
+       
