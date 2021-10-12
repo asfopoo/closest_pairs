@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # closest pairs
 
 ----
@@ -9,5 +10,6 @@
 - Then you must install the required libraries 
 - you can run $ pip3 install -r requirements.txt for easy installation
 - Then to run the progam run $ python main.py
-
-
+=======
+# closest_pairs
+>>>>>>> Stashed changes
