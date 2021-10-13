@@ -6,8 +6,7 @@
 - Start by cloning the project 
 - In a directory of you choice run $ git clone https://github.com/asfopoo/closest_pairs.git
 - Then run $ cd closest_pairs
-- Then you must install the required libraries 
-- you can run $ pip3 install -r requirements.txt for easy installation
+- You most likely do not need to install any libraries but if you do you can run $ pip3 install -r requirements.txt for easy installation
 - Then to run the progam run $ python main.py
 
 ## Testing
@@ -19,3 +18,4 @@
 - To run this file use $ python graph_avg_run.py 
 - You will be prompted how many inputs you would like to run
 - The program will run 10 times using the given input and calculate the average computations
+- I suggest keeping the inputs small as it may take a while 
