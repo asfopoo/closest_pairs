@@ -1,4 +1,7 @@
 # Closest pairs
+### Construct an algorithm for finding the m ≤ n choose 2
+closest pairs of points in P. Return the distances between the m closest pairs of points, including their x and y
+coordinate
 
 ----
 
